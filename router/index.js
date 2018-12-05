@@ -31,20 +31,11 @@ const getConfig = function(req, res){
   })
 }
 
-// 菜单 --- 创建
+// 公众号菜单
 const menuCreate = function(req, res){
   const { access_token } = url.parse(req.url, true)
   let menuList = ENUM.menuList
   res.json(menuList)
-}
-
-const testDemo = function(req, res){
-  res.json({
-    code: 1,
-    data: {
-      name: 'zhangsan'
-    }
-  })
 }
 
 module.exports = {
