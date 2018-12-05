@@ -41,6 +41,5 @@ const menuCreate = function(req, res){
 module.exports = {
   checkSignature,
   getConfig,
-  menuCreate,
-  testDemo
+  menuCreate
 }
