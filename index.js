@@ -20,6 +20,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 // 验证通过就可以用微信sdk文件
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.get('/test', router.testDemo)
+
 // 返回微信sdk config的内容
 app.get('/getconfig', router.getConfig)
 

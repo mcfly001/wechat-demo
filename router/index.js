@@ -38,8 +38,13 @@ const menuCreate = function(req, res){
   res.json(menuList)
 }
 
+const testDemo = function(req, res){
+  res.end(1111111)
+}
+
 module.exports = {
   checkSignature,
   getConfig,
-  menuCreate
+  menuCreate,
+  testDemo
 }
