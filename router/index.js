@@ -39,7 +39,12 @@ const menuCreate = function(req, res){
 }
 
 const testDemo = function(req, res){
-  res.end('1111111')
+  res.end({
+    code: 1,
+    data: {
+      name: 'zhangsan'
+    }
+  })
 }
 
 module.exports = {
