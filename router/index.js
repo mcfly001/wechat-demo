@@ -39,7 +39,7 @@ const menuCreate = function(req, res){
 }
 
 const testDemo = function(req, res){
-  res.end(1111111)
+  res.end('1111111')
 }
 
 module.exports = {
