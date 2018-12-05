@@ -39,7 +39,7 @@ const menuCreate = function(req, res){
 }
 
 const testDemo = function(req, res){
-  res.end({
+  res.json({
     code: 1,
     data: {
       name: 'zhangsan'
