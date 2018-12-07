@@ -4,13 +4,12 @@ const utils = require('../utils')
 const ENUM = require('../enum')
 
 // 验证签名有效性
-const checkSignature = function(req, res){
+const checkSignature = function(req, res) {
   const { query } = url.parse(req.url, true)
   const { nonce, timestamp, echostr, signature } = query
   const conditionsA = nonce && timestamp && echostr && signature
   const conditionsB = utils.equalSignature(nonce, timestamp, signature)
-  
-  if(conditionsA && conditionsB){
+  if( conditionsA && conditionsB ){
     res.end(echostr)
   }
   res.end('signature failt')
