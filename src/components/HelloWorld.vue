@@ -12,7 +12,7 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      msg: '浙江dfggsdgdfs省杭州市'
+      msg: '浙江省杭州市'
     }
   },
   created() {

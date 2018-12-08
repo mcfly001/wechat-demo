@@ -29,6 +29,8 @@ app.get('/check/signature', router.checkSignature)
 // 自定义菜单
 app.get('/menu/create', router.menuCreate)
 
+app.get('/test', router.test)
+
 app.listen(PORT, '0.0.0.0', function(){
   console.log('Server running at port:' + PORT)
 })

@@ -37,8 +37,18 @@ const menuCreate = function(req, res){
   res.json(menuList)
 }
 
+const test = function(req,  res){
+  res.json({
+    code: 1,
+    data: {
+      name: 'afds'
+    }
+  })
+}
+
 module.exports = {
   checkSignature,
   getConfig,
-  menuCreate
+  menuCreate,
+  test
 }
