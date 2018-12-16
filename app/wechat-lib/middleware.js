@@ -46,7 +46,7 @@ module.exports = config => {
                       <![CDATA[${message.ToUserName}]]>
                     </FromUserName> 
                     <CreateTime>
-                      ${parseInt(new Date().getTime() / 1000, 0) + ''}
+                      ${parseInt(new Date().getTime() / 1000, 0)}
                     </CreateTime> 
                     <MsgType>
                       <![CDATA[${message.MsgType}]>
