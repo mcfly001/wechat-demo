@@ -23,7 +23,7 @@ module.exports = config => {
         return ctx.body = 'Failed'
       }
 
-      const data = await getRawBody(ctx.body, {
+      const data = await getRawBody(ctx.req, {
         length: ctx.length,
         limit: '1mb',
         encoding: ctx.charset
@@ -31,7 +31,7 @@ module.exports = config => {
 
       console.log('data', data)
 
-      const content = await parseXml(data)
+      const content = await util.parseXml(data)
       console.log('content', content)
       const message = util.formatMessage(content.xml)
       console.log('message', message)
