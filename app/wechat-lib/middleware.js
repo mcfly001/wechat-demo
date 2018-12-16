@@ -31,9 +31,9 @@ module.exports = config => {
 
       console.log('data', data)
 
-      const content = await  util.parseXml(data)
+      const content = await util.xmlToJson(data)
       console.log('content', content)
-      const message = util.formatMessage(content.xml)
+      const message = util.jsonToXml(content.xml)
       console.log('message', message)
      
       ctx.status = 200
@@ -49,7 +49,7 @@ module.exports = config => {
                       ${parseInt(new Date().getTime() / 1000, 0) + ''}
                     </CreateTime> 
                     <MsgType>
-                      <![CDATA[text]]>
+                      <![CDATA[${message.MsgType}]>
                     </MsgType> 
                     <Content>
                       <![CDATA[${message.content}]]>
