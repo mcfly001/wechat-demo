@@ -31,7 +31,7 @@ module.exports = config => {
 
       console.log('data', data)
 
-      const content = await util.parseXml(data)
+      const content = await  util.parseXml(data)
       console.log('content', content)
       const message = util.formatMessage(content.xml)
       console.log('message', message)
