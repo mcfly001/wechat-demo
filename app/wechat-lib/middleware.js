@@ -37,11 +37,13 @@ module.exports = config => {
       switch(MsgType){
         case 'text':
           callbackInfo = util.jsonToXml({
-            ToUserName: FromUserName,
-            FromUserName: ToUserName,
-            CreateTime,
-            MsgType,
-            MsgId
+            xml: {
+              ToUserName: FromUserName,
+              FromUserName: ToUserName,
+              CreateTime,
+              MsgType,
+              MsgId
+            }
           })
           break
         default:
@@ -49,7 +51,6 @@ module.exports = config => {
       }
       ctx.status = 200
       ctx.type = 'application/xml'
-
       ctx.body = callbackInfo
     }
   }
