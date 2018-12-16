@@ -31,7 +31,7 @@ module.exports = config => {
       })
       // content为一个对象，有一个属性为xml
       const content = await util.xmlToJson(data)
-      const { ToUserName = '', FromUserName = '', CreateTime = parseInt(new Date().getTime() / 1000, 0), 
+      const { ToUserName = '', FromUserName = '', CreateTime, 
               MsgType = ['text'], Content = '', MsgId = '' 
             } = content.xml
       let type = MsgType && MsgType[0] || 'text'
@@ -41,7 +41,7 @@ module.exports = config => {
             xml: {
               ToUserName: FromUserName,
               FromUserName: ToUserName,
-              CreateTime,
+              CreateTime: parseInt(new Date().getTime() / 1000, 0),
               MsgType,
               Content
             }
