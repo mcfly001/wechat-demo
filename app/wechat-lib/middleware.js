@@ -35,7 +35,7 @@ module.exports = config => {
               MsgType = 'text', Content = '', MsgId = '' 
             } = content.xml
       switch(MsgType){
-        case: 'text'
+        case: 'text':
           callbackInfo = util.jsonToXml({
             ToUserName: FromUserName,
             FromUserName: ToUserName,
