@@ -4,7 +4,7 @@ module.exports = config => {
   // 加载认证的中间件 ctx是Koa的上下文  
   return async(ctx, next) => {
     const { nonce, timestamp, echostr, signature } = ctx.query
-    const { token } = config.wechat
+    const { token } = config
     const str = [token, timestamp, nonce].sort().join('')
     const sha = sha1(str)
 
