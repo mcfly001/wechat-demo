@@ -23,22 +23,35 @@ module.exports = config => {
         return ctx.body = 'Failed'
       }
 
+      let callbackInfo // 返回的信息
       const data = await getRawBody(ctx.req, {
         length: ctx.length,
         limit: '1mb',
         encoding: ctx.charset
       })
-
-      console.log('data', data)
-
+      // content为一个对象，有一个属性为xml
       const content = await util.xmlToJson(data)
-      console.log('content', content)
-      const message = util.jsonToXml(content.xml)
-      console.log('message', message)
-     
+      const { ToUserName = '', FromUserName = '', CreateTime = parseInt(new Date().getTime() / 1000, 0), 
+              MsgType = 'text', Content = '', MsgId = '' 
+            } = content.xml
+      const MsgType = content.MsgType
+      switch(MsgType){
+        case: 'text'
+          callbackInfo = util.jsonToXml({
+            ToUserName: FromUserName,
+            FromUserName: ToUserName,
+            CreateTime,
+            MsgType,
+            MsgId
+          })
+          break
+        default:
+          callbackInfo = 'success'
+      }
       ctx.status = 200
       ctx.type = 'application/xml'
-      ctx.body = message
+
+      ctx.body = callbackInfo
     }
   }
 }
