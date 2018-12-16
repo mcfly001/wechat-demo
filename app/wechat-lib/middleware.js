@@ -34,7 +34,6 @@ module.exports = config => {
       const { ToUserName = '', FromUserName = '', CreateTime = parseInt(new Date().getTime() / 1000, 0), 
               MsgType = 'text', Content = '', MsgId = '' 
             } = content.xml
-      const MsgType = content.MsgType
       switch(MsgType){
         case: 'text'
           callbackInfo = util.jsonToXml({
