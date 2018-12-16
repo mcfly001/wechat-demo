@@ -23,7 +23,7 @@ module.exports = config => {
         return ctx.body = 'Failed'
       }
 
-      const data = await getRowBody(ctx.body, {
+      const data = await getRawBody(ctx.body, {
         length: ctx.length,
         limit: '1mb',
         encoding: ctx.charset
