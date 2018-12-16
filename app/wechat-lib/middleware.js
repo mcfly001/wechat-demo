@@ -38,23 +38,25 @@ module.exports = config => {
      
       ctx.status = 200
       ctx.type = 'application/xml'
-      ctx.body = `<xml> 
-                    <ToUserName>
-                      <![CDATA[${message.FromUserName}]]>
-                    </ToUserName> 
-                    <FromUserName>
-                      <![CDATA[${message.ToUserName}]]>
-                    </FromUserName> 
-                    <CreateTime>
-                      ${parseInt(new Date().getTime() / 1000, 0)}
-                    </CreateTime> 
-                    <MsgType>
-                      <![CDATA[${message.MsgType}]>
-                    </MsgType> 
-                    <Content>
-                      <![CDATA[${message.content}]]>
-                    </Content> 
-                  </xml>`
+      ctx.body = message
     }
   }
 }
+
+// `<xml> 
+//                     <ToUserName>
+//                       <![CDATA[${message.FromUserName}]]>
+//                     </ToUserName> 
+//                     <FromUserName>
+//                       <![CDATA[${message.ToUserName}]]>
+//                     </FromUserName> 
+//                     <CreateTime>
+//                       ${parseInt(new Date().getTime() / 1000, 0)}
+//                     </CreateTime> 
+//                     <MsgType>
+//                       <![CDATA[${message.MsgType}]>
+//                     </MsgType> 
+//                     <Content>
+//                       <![CDATA[${message.content}]]>
+//                     </Content> 
+//                   </xml>`
