@@ -32,9 +32,10 @@ module.exports = config => {
       // content为一个对象，有一个属性为xml
       const content = await util.xmlToJson(data)
       const { ToUserName = '', FromUserName = '', CreateTime = parseInt(new Date().getTime() / 1000, 0), 
-              MsgType = 'text', Content = '', MsgId = '' 
+              MsgType = ['text'], Content = '', MsgId = '' 
             } = content.xml
-      switch(MsgType){
+      let type = MsgType && MsgType[0] || 'text'
+      switch(type){
         case 'text':
           callbackInfo = util.jsonToXml({
             xml: {
@@ -42,7 +43,7 @@ module.exports = config => {
               FromUserName: ToUserName,
               CreateTime,
               MsgType,
-              MsgId
+              Content
             }
           })
           break
@@ -55,21 +56,3 @@ module.exports = config => {
     }
   }
 }
-
-// `<xml> 
-//                     <ToUserName>
-//                       <![CDATA[${message.FromUserName}]]>
-//                     </ToUserName> 
-//                     <FromUserName>
-//                       <![CDATA[${message.ToUserName}]]>
-//                     </FromUserName> 
-//                     <CreateTime>
-//                       ${parseInt(new Date().getTime() / 1000, 0)}
-//                     </CreateTime> 
-//                     <MsgType>
-//                       <![CDATA[${message.MsgType}]>
-//                     </MsgType> 
-//                     <Content>
-//                       <![CDATA[${message.content}]]>
-//                     </Content> 
-//                   </xml>`
