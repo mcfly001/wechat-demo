@@ -1,4 +1,4 @@
-const Koa = require('koa')
+const Koa = require('koa2')
 const sha1 = require('sha1')
 const PORT = 80
 const config = {
