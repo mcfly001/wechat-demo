@@ -9,7 +9,7 @@ const app = new Koa()
 
 app.use(bodyParser())
 // 静态资源存放
-app.use(static(
+app.use('wechat-demo', static(
   path.join(__dirname, staticPath)
 ))
 // 消息推送验证签名有效性
