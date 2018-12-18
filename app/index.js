@@ -1,8 +1,8 @@
 const Koa = require('koa2')
-const path = require('path')
 const wechat = require('./wechat-lib/middleware')
 const config = require('./config')
 const static = require('koa-static')
+const path = require('path')
 const bodyParser = require('koa-bodyparser')
 const staticPath = '../../static'
 const app = new Koa()
