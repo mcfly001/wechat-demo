@@ -45,10 +45,10 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../../static/wechat-demo/index.html'),
+    index: path.resolve(__dirname, '../app/public/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../../static/wechat-demo'),
+    assetsRoot: path.resolve(__dirname, '../app/public'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
 
