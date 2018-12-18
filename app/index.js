@@ -1,4 +1,5 @@
 const Koa = require('koa2')
+const path = require('path')
 const wechat = require('./wechat-lib/middleware')
 const config = require('./config')
 const static = require('koa-static')
